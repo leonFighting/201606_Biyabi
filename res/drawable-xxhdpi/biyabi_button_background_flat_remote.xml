@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@id/shape_bacground">
+        <shape android:shape="rectangle">
+            <padding android:left="10.0dip" android:top="10.0dip" android:right="10.0dip" android:bottom="10.0dip" />
+            <solid android:color="@color/biyabi_primary" />
+        </shape>
+    </item>
+</layer-list>
