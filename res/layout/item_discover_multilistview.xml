@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:background="#fff5f5f5"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/news_list"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/biyabi_item_info_list_margin_bottom"
+        android:background="@drawable/shape_white_greyborder_corner"
+        android:orientation="vertical"
+        android:padding="10.0dip">
+
+        <ImageView
+            android:id="@+id/img_discoverlist"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/item_discover_img_height"
+            android:layout_marginBottom="10.0dip"
+            android:layerType="hardware"
+            android:scaleType="fitCenter" />
+
+        <TextView
+            android:id="@+id/title_discoverlist"
+            android:text=""
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10.0dip"
+            android:layout_marginTop="10.0dip"
+            android:ellipsize="end"
+            android:lines="2"
+            android:textColor="@color/listitem_title"
+            android:textSize="@dimen/item_titletext" />
+
+        <TextView
+            android:id="@+id/price_discoverlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:textColor="@color/barcolor"
+            android:textSize="@dimen/item_titletext" />
+
+        <TextView
+            android:id="@+id/source_discoverlist"
+            style="@style/listview_mallname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_marginTop="10.0dip" />
+
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10.0dip">
+
+            <ImageView
+                android:id="@+id/goodbutton_discover"
+                android:layout_width="15.0dip"
+                android:layout_height="15.0dip"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitCenter"
+                android:src="@drawable/goodicon_black" />
+
+            <TextView
+                android:id="@+id/commentcount_discoverlist"
+                style="@style/listview_mallname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="1.0dip"
+                android:layout_marginLeft="5.0dip"
+                android:layout_toRightOf="@id/goodbutton_discover"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="" />
+
+            <ImageView
+                android:id="@+id/pinglun_iv_discover"
+                android:layout_width="15.0dip"
+                android:layout_height="15.0dip"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="15.0dip"
+                android:layout_toRightOf="@id/commentcount_discoverlist"
+                android:scaleType="fitCenter"
+                android:src="@drawable/icon_pinglun_listitem" />
+
+            <TextView
+                android:id="@+id/pingluncount_discoverlist"
+                style="@style/listview_mallname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_vertical"
+                android:layout_marginBottom="1.0dip"
+                android:layout_marginLeft="5.0dip"
+                android:layout_toRightOf="@id/pinglun_iv_discover"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="" />
+
+            <TextView
+                android:id="@+id/time_discoverlist"
+                style="@style/listview_mallname"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="5.0dip"
+                android:text="16.04"
+                android:gravity="right" />
+        </RelativeLayout>
+    </LinearLayout>
+</LinearLayout>

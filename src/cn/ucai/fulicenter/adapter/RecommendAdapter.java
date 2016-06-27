@@ -13,7 +13,13 @@ import android.widget.TextView;
 
 import com.android.volley.toolbox.NetworkImageView;
 
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
 
 import cn.ucai.fulicenter.I;
 import cn.ucai.fulicenter.R;
@@ -28,16 +34,22 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     public static final String TAG = RecommendAdapter.class.getName();
     Context context;
     ArrayList<RecommendBean> mRecommendList;
-
+    int sortBy;
     public RecommendAdapter(Context context, ArrayList<RecommendBean> mRecommendList) {
         this.context = context;
         this.mRecommendList = mRecommendList;
+        sortBy = I.SORT_BY_ADDTIME_DESC;
+    }
+
+    public void setSortBy(int sortBy) {
+        this.sortBy = sortBy;
+        sort(sortBy);
+        notifyDataSetChanged();
     }
 
     RecommendViewholder mRecommendViewholder;
     String footerText;
     Boolean isMore;
-
     public void setFooterText(String footerText) {
         this.footerText = footerText;
         notifyDataSetChanged();
@@ -51,7 +63,35 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
         return isMore;
     }
 
-
+    private void sort(final int sortBy){
+        Collections.sort(mRecommendList, new Comparator<RecommendBean>() {
+            @Override
+            public int compare(RecommendBean g1, RecommendBean g2) {
+                DateFormat fmt =new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                long time1 = 0;
+                long time2 = 0;
+                try {
+                    Date date1 = fmt.parse(g1.getUpdateTime());
+                    time1 = date1.getTime();
+                    Date date2 = fmt.parse(g2.getUpdateTime());
+                    time2 = date2.getTime();
+                    Log.e(TAG, "time1="+time1 + ",time2="+time2);
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+                int result =0;
+                switch (sortBy){
+                    case I.SORT_BY_ADDTIME_ASC:
+                        result = (int) (time1-time2);
+                        break;
+                    case I.SORT_BY_ADDTIME_DESC:
+                        result = (int) (time2-time1);
+                        break;
+                }
+                return result;
+            }
+        });
+    }
     @Override
 
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -127,11 +167,13 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             mRecommendList.clear();
         }
         mRecommendList.addAll(list);
+        sort(sortBy);
         notifyDataSetChanged();
     }
 
     public void addItems(ArrayList<RecommendBean> list) {
         mRecommendList.addAll(list);
+        sort(sortBy);
         notifyDataSetChanged();
     }
 
