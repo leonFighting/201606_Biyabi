@@ -47,7 +47,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cn.ucai.fulicenter.R;
-import cn.ucai.fulicenter.SuperWeChatApplication;
+import cn.ucai.fulicenter.BiyabiApplication;
 import cn.ucai.fulicenter.bean.Group;
 import cn.ucai.fulicenter.task.DownloadPublicGroupTask;
 import cn.ucai.fulicenter.utils.UserUtils;
@@ -125,7 +125,7 @@ public class PublicGroupsActivity extends BaseActivity {
                         int lasPos = view.getLastVisiblePosition();
                         if(hasMoreData && !isLoading && lasPos == listView.getCount()-1){
                             pageId++;
-                            new DownloadPublicGroupTask(PublicGroupsActivity.this,SuperWeChatApplication.getInstance().getUserName(),
+                            new DownloadPublicGroupTask(PublicGroupsActivity.this, BiyabiApplication.getInstance().getUserName(),
                                     pageId, pagesize).execute();
                             loadAndShowData();
                         }
@@ -175,7 +175,7 @@ public class PublicGroupsActivity extends BaseActivity {
 	private void loadAndShowData(){
         try {
             isLoading = true;
-            ArrayList<Group> publicGroupList = SuperWeChatApplication.getInstance().getPublicGroupList();
+            ArrayList<Group> publicGroupList = BiyabiApplication.getInstance().getPublicGroupList();
             for(Group group: publicGroupList){
                 if(!groupsList.contains(group)) {
                     groupsList.add(group);

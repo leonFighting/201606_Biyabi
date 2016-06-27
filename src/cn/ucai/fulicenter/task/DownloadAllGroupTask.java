@@ -9,7 +9,7 @@ import com.android.volley.Response;
 import java.util.ArrayList;
 
 import cn.ucai.fulicenter.I;
-import cn.ucai.fulicenter.SuperWeChatApplication;
+import cn.ucai.fulicenter.BiyabiApplication;
 import cn.ucai.fulicenter.activity.BaseActivity;
 import cn.ucai.fulicenter.bean.Group;
 import cn.ucai.fulicenter.data.ApiParams;
@@ -52,7 +52,7 @@ public class DownloadAllGroupTask extends BaseActivity {
                     Log.e(TAG,"DownloadAllGroup,groups size="+groups.length);
                     ArrayList<Group> list = Utils.array2List(groups);
                     ArrayList<Group> groupList =
-                            SuperWeChatApplication.getInstance().getGroupList();
+                            BiyabiApplication.getInstance().getGroupList();
                     groupList.clear();
                     groupList.addAll(list);
 //                    for (Group group:groupList){

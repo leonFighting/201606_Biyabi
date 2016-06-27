@@ -31,7 +31,7 @@ import java.io.File;
 import cn.ucai.fulicenter.DemoHXSDKHelper;
 import cn.ucai.fulicenter.I;
 import cn.ucai.fulicenter.R;
-import cn.ucai.fulicenter.SuperWeChatApplication;
+import cn.ucai.fulicenter.BiyabiApplication;
 import cn.ucai.fulicenter.applib.controller.HXSDKHelper;
 import cn.ucai.fulicenter.bean.Message;
 import cn.ucai.fulicenter.bean.User;
@@ -93,8 +93,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 			headPhotoUpdate.setVisibility(View.GONE);
 			iconRightArrow.setVisibility(View.INVISIBLE);
 		}
-		if (username == null||username.equals(SuperWeChatApplication.getInstance().getUserName())) {
-			tvUsername.setText(SuperWeChatApplication.getInstance().getUserName());
+		if (username == null||username.equals(BiyabiApplication.getInstance().getUserName())) {
+			tvUsername.setText(BiyabiApplication.getInstance().getUserName());
 			UserUtils.setCurrentUserBeanNick(tvNickName);
 			UserUtils.setCurrentUserAvatar(headAvatar);
 		} else {
@@ -194,7 +194,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
         dialog = ProgressDialog.show(this, getString(R.string.dl_update_nick), getString(R.string.dl_waiting));
         try {
             String path = new ApiParams()
-                .with(I.User.USER_NAME,SuperWeChatApplication.getInstance().getUserName())
+                .with(I.User.USER_NAME, BiyabiApplication.getInstance().getUserName())
                 .with(I.User.NICK,nickName)
                 .getRequestUrl(I.REQUEST_UPDATE_USER_NICK);
             executeRequest(new GsonRequest<User>(path,User.class,
@@ -243,8 +243,8 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
 							Toast.makeText(UserProfileActivity.this, getString(R.string.toast_updatenick_success), Toast.LENGTH_SHORT)
 									.show();
 							tvNickName.setText(nickName);
-                            SuperWeChatApplication.currentUserNick = nickName;
-                            SuperWeChatApplication.getInstance().getUser().setMUserNick(nickName);
+                            BiyabiApplication.currentUserNick = nickName;
+                            BiyabiApplication.getInstance().getUser().setMUserNick(nickName);
 						}
 					});
 				}
@@ -260,7 +260,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
         if(resultCode==RESULT_OK && requestCode == OnSetAvatarListener.REQUEST_CROP_PHOTO){
             dialog = ProgressDialog.show(this, getString(R.string.dl_update_photo), getString(R.string.dl_waiting));
             RequestManager.getRequestQueue().getCache()
-                    .remove(UserUtils.getAvatarPath(SuperWeChatApplication.getInstance().getUserName()));
+                    .remove(UserUtils.getAvatarPath(BiyabiApplication.getInstance().getUserName()));
             uploadAvatarByMultipart();
             dialog.show();
         }
@@ -278,7 +278,7 @@ public class UserProfileActivity extends BaseActivity implements OnClickListener
         String url = null;
         try {
             url = new ApiParams()
-                    .with(I.User.USER_NAME, SuperWeChatApplication.getInstance().getUserName())
+                    .with(I.User.USER_NAME, BiyabiApplication.getInstance().getUserName())
                     .with(I.AVATAR_TYPE,I.AVATAR_TYPE_USER_PATH)
                     .getRequestUrl(I.REQUEST_UPLOAD_AVATAR);
         } catch (Exception e) {

@@ -15,7 +15,7 @@ import cn.ucai.fulicenter.Constant;
 import cn.ucai.fulicenter.DemoHXSDKHelper;
 import cn.ucai.fulicenter.I;
 import cn.ucai.fulicenter.R;
-import cn.ucai.fulicenter.SuperWeChatApplication;
+import cn.ucai.fulicenter.BiyabiApplication;
 import cn.ucai.fulicenter.applib.controller.HXSDKHelper;
 import cn.ucai.fulicenter.bean.Contact;
 import cn.ucai.fulicenter.bean.Group;
@@ -46,7 +46,7 @@ public class UserUtils {
     }
 
     public static Contact getUserBeanInfo(String username) {
-        Contact contact = SuperWeChatApplication.getInstance().getUserList().get(username);
+        Contact contact = BiyabiApplication.getInstance().getUserList().get(username);
         return contact;
     }
 
@@ -110,7 +110,7 @@ public class UserUtils {
 	}
 
     public static void setCurrentUserAvatar(NetworkImageView imageView) {
-        User user = SuperWeChatApplication.getInstance().getUser();
+        User user = BiyabiApplication.getInstance().getUser();
         if(user!=null){
             setUserAvatar(getAvatarPath(user.getMUserName()),imageView);
         }
@@ -144,7 +144,7 @@ public class UserUtils {
     }
 
     private static Member getGroupMember(String hxid, String username) {
-        ArrayList<Member> members = SuperWeChatApplication.getInstance().getGroupMembers().get(hxid);
+        ArrayList<Member> members = BiyabiApplication.getInstance().getGroupMembers().get(hxid);
         if(members!=null){
             for (Member member:members){
                 if(member.getMMemberUserName().equals(username)){
@@ -188,7 +188,7 @@ public class UserUtils {
     }
 
     public static void setCurrentUserBeanNick(TextView textView){
-        User user = SuperWeChatApplication.getInstance().getUser();
+        User user = BiyabiApplication.getInstance().getUser();
         if(textView != null && user != null){
             textView.setText(user.getMUserNick());
         }
@@ -238,7 +238,7 @@ public class UserUtils {
 
     public static Group getGroupBeanFromHXID(String hxid) {
         if(hxid!=null && !hxid.isEmpty()) {
-            ArrayList<Group> groupList = SuperWeChatApplication.getInstance().getGroupList();
+            ArrayList<Group> groupList = BiyabiApplication.getInstance().getGroupList();
             for (Group group:groupList){
                 if(group.getMGroupHxid().equals(hxid)){
                     return group;
