@@ -4,7 +4,8 @@
     android:layout_height="fill_parent"
     android:background="#fffe5b61"
     android:clipToPadding="false"
-    android:fitsSystemWindows="true">
+    android:fitsSystemWindows="true"
+    android:id="@+id/splash_root">
 
     <ImageView
         android:layout_width="220.0dip"
