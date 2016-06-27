@@ -2,18 +2,20 @@ package cn.ucai.fulicenter.activity;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
 import cn.ucai.fulicenter.R;
+import cn.ucai.fulicenter.fragment.RecommendFragment;
 import cn.ucai.fulicenter.fragment.SpecialGoodFragment;
 
 public class BiyabiMainActivity extends BaseActivity {
     public static final String TAG = BiyabiMainActivity.class.getName();
     SpecialGoodFragment mSpecialGoodFragment;
-
-    private Fragment[] mFragments = new Fragment[1];
+    RecommendFragment mRecommendFragment;
+    private Fragment[] mFragments = new Fragment[2];
     private int index;
     private int currentTabIndex;
 
@@ -36,9 +38,13 @@ public class BiyabiMainActivity extends BaseActivity {
 
     private void initFragment() {
         mSpecialGoodFragment = new SpecialGoodFragment();
+        mRecommendFragment = new RecommendFragment();
         mFragments[0] = mSpecialGoodFragment;
+        mFragments[1] = mRecommendFragment;
         getSupportFragmentManager().beginTransaction()
                 .add(R.id.fragment_container, mSpecialGoodFragment)
+                .add(R.id.fragment_container,mRecommendFragment)
+                .hide(mRecommendFragment)
                 .show(mSpecialGoodFragment)
                 .commit();
     }
@@ -79,6 +85,12 @@ public class BiyabiMainActivity extends BaseActivity {
 
         }
         if (currentTabIndex != index) {
+            FragmentTransaction trx = getSupportFragmentManager().beginTransaction();
+            trx.hide(mFragments[currentTabIndex]);
+            if (!mFragments[index].isAdded()) {
+                trx.add(R.id.fragment_container, mFragments[index]);
+            }
+            trx.show(mFragments[index]).commit();
             setRadioChecked(index);
             currentTabIndex = index;
         }
@@ -97,5 +109,15 @@ public class BiyabiMainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
+        if (currentTabIndex != index) {
+            FragmentTransaction trx = getSupportFragmentManager().beginTransaction();
+            trx.hide(mFragments[currentTabIndex]);
+            if (!mFragments[index].isAdded()) {
+                trx.add(R.id.fragment_container, mFragments[index]);
+            }
+            trx.show(mFragments[index]).commit();
+            setRadioChecked(index);
+            currentTabIndex = index;
+        }
     }
 }

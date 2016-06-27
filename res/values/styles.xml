@@ -245,4 +245,8 @@
     <style name="CustomCheckboxTheme" parent="@android:style/Widget.CompoundButton.CheckBox">
         <item name="android:button">@drawable/checkbox_style</item>
     </style>
+    <style name="listview_mallname" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">11.0sp</item>
+        <item name="android:textColor">@color/biyabi_text_secondary</item>
+    </style>
 </resources>
