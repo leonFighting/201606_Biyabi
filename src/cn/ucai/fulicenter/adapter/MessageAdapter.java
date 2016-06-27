@@ -677,7 +677,7 @@ public class MessageAdapter extends BaseAdapter{
 				JSONObject jsonChoice = jsonObj.getJSONObject("choice");
 				String title = jsonChoice.getString("title");
 				holder.tvTitle.setText(title);
-				setRobotMenuMessageLayout(holder.tvList, jsonChoice.getJSONArray("list"));
+				setRobotMenuMessageLayout(holder.tvList, jsonChoice.getJSONArray("mSpecialList"));
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
