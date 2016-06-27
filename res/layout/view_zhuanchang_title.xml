@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10.0dip">
+
+        <ImageView
+            android:id="@+id/colorband_iv_item_titleview"
+            android:layout_width="2.0dip"
+            android:layout_height="15.0dip"
+            android:layout_gravity="center_vertical"
+            android:layout_marginRight="10.0dip"
+            android:background="@color/barcolor" />
+
+        <TextView
+            android:id="@+id/title_tv_item_titleview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:gravity="center_horizontal"
+            android:text="标题" />
+    </LinearLayout>
+</merge>
