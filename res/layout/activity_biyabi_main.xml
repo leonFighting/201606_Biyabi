@@ -18,7 +18,7 @@
             android:layout_height="match_parent"
             android:orientation="horizontal">
             <RadioButton
-                android:id="@+id/layout_new_good"
+                android:id="@+id/layout_home"
                 android:drawableTop="@drawable/selector_menu_item_new_good"
                 style="@style/menu_item_style"
                 android:text="首页"
@@ -27,7 +27,7 @@
                 android:checked="true"
                 />
             <RadioButton
-                android:id="@+id/layout_boutique"
+                android:id="@+id/layout_search"
                 android:drawableTop="@drawable/selector_menu_item_boutique"
                 style="@style/menu_item_style"
                 android:text="搜索"
@@ -36,7 +36,7 @@
                 android:checked="false"
                 />
             <RadioButton
-                android:id="@+id/layout_category"
+                android:id="@+id/layout_shareorder"
                 android:drawableTop="@drawable/selector_menu_item_category"
                 style="@style/menu_item_style"
                 android:text="逛晒单"
@@ -84,7 +84,7 @@
                 </LinearLayout>
             </RelativeLayout>
             <RadioButton
-                android:id="@+id/layout_personal_center"
+                android:id="@+id/layout_user"
                 android:drawableTop="@drawable/selector_menu_item_personal_center"
                 style="@style/menu_item_style"
                 android:text="我"
