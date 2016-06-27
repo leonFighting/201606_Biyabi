@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10.0dip"
+    android:background="@color/white">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="@dimen/biyabi_item_info_list_margin_bottom"
+        android:padding="5.0dip">
+
+        <FrameLayout
+            android:id="@+id/img_layout_discoverlist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginBottom="@dimen/discoverlist_imgmargin"
+            android:layout_marginLeft="@dimen/discoverlist_imgmargin"
+            android:layout_marginRight="15.0dip"
+            android:layout_marginTop="@dimen/discoverlist_imgmargin">
+
+            <com.android.volley.toolbox.NetworkImageView
+                android:id="@+id/img_discoverlist"
+                android:layout_width="@dimen/discoverlist_imgwidth"
+                android:layout_height="@dimen/discoverlist_imgheight"
+                android:scaleType="fitCenter" />
+
+            <ImageView
+                android:id="@+id/salestatus_iv_recommendlist"
+                android:layout_width="35.0dip"
+                android:layout_height="35.0dip"
+                android:layout_gravity="bottom|center|right"
+                android:layout_margin="0.0dip"
+                android:scaleType="fitCenter" />
+        </FrameLayout>
+
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="0.0dip"
+            android:layout_below="@id/img_layout_discoverlist" />
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/img_layout_discoverlist">
+
+            <TextView
+                android:id="@+id/title_discoverlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="5.0dip"
+                android:ellipsize="end"
+                android:lines="2"
+                android:textColor="@color/listitem_title"
+                android:textSize="@dimen/item_titletext" />
+
+            <TextView
+                android:id="@+id/price_discoverlist"
+                android:text="123"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_discoverlist"
+                android:ellipsize="end"
+                android:paddingBottom="5.0dip"
+                android:paddingTop="5.0dip"
+                android:singleLine="true"
+                android:textColor="@color/barcolor"
+                android:textSize="@dimen/item_pricetext" />
+            <TextView
+                android:id="@+id/orginalPrice_discoverlist"
+                android:text="560"
+                android:layout_marginLeft="15dp"
+                android:layout_toRightOf="@id/price_discoverlist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_discoverlist"
+                android:ellipsize="end"
+                android:paddingBottom="5.0dip"
+                android:paddingTop="5.0dip"
+                android:singleLine="true"
+                android:textColor="@color/biyabi_grey"
+                android:textSize="@dimen/item_pricetext" />
+
+            <TextView
+                android:id="@+id/source_discoverlist"
+                style="@style/listview_mallname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/price_discoverlist"
+                android:paddingRight="20.0dip"
+                android:text="亚马逊" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/source_discoverlist"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingTop="5.0dip">
+
+                <ImageView
+                    android:id="@+id/good_iv_discoverlist"
+                    android:layout_width="15.0dip"
+                    android:layout_height="15.0dip"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/goodicon_black" />
+
+                <TextView
+                    android:id="@+id/commentcount_discoverlist"
+                    style="@style/listview_mallname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5.0dip"
+                    android:ellipsize="end"
+                    android:singleLine="true" />
+
+                <ImageView
+                    android:id="@+id/reviewcount_iv_discoverlist"
+                    android:layout_width="15.0dip"
+                    android:layout_height="15.0dip"
+                    android:layout_marginLeft="15.0dip"
+                    android:scaleType="fitCenter"
+                    android:src="@drawable/icon_pinglun_listitem"
+                    android:visibility="gone" />
+
+                <TextView
+                    android:id="@+id/reviewcount_discoverlist"
+                    style="@style/listview_mallname"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5.0dip"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/time_discoverlist"
+                style="@style/listview_mallname"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/source_discoverlist"
+                android:paddingRight="5.0dip"
+                android:paddingTop="5.0dip"
+                android:text="今天" />
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/tag_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginTop="5.0dip" />
+
+    <TextView
+        android:id="@+id/tag_tv_recommendlist"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@color/barcolor"
+        android:paddingLeft="5.0dip"
+        android:paddingRight="5.0dip"
+        android:textColor="@color/white"
+        android:textSize="12.0sp" />
+</RelativeLayout>
