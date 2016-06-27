@@ -151,8 +151,8 @@ public class SpecialGoodFragment extends Fragment {
             path = new ApiParams()
                     .with("p_iParentSpecialID", "0")
                     .with("p_btSpecialType", "2")
-                    .with("p_iPageIndex", "" + p_iPageIndex)
-                    .with("p_iPageSize", "" + I.PAGE_SIZE_DEFAULT)
+                    .with("p_iPageIndex", "" + ""+p_iPageIndex)
+                    .with("p_iPageSize", "" + ""+I.PAGE_SIZE_DEFAULT)
                     .getUrl("http://mws1.biyabi.com/WebService.asmx/SpecialListQuery");
             Log.e(TAG, "path=" + path);
             return path;

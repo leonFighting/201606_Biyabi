@@ -63,6 +63,13 @@ public interface I {
 		String IS_SEARCHED 							= 		"m_location_is_searched";		//是否可以被搜索到
 		String UPDATE_TIME 							= 		"m_location_last_update_time";	//最后更新时间
 	}
+	/**
+	 * 商品排序方式
+	 */
+	public final int SORT_BY_PRICE_ASC=1;
+	public final int SORT_BY_PRICE_DESC=2;
+	public final int SORT_BY_ADDTIME_ASC=3;
+	public final int SORT_BY_ADDTIME_DESC=4;
 	/** 表示列表项布局的两种类型*/
 	public static final int TYPE_ITEM=0;
 	public static final int TYPE_FOOTER=1;
