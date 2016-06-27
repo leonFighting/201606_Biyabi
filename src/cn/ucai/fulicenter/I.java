@@ -63,14 +63,22 @@ public interface I {
 		String IS_SEARCHED 							= 		"m_location_is_searched";		//是否可以被搜索到
 		String UPDATE_TIME 							= 		"m_location_last_update_time";	//最后更新时间
 	}
-
+	/** 表示列表项布局的两种类型*/
+	public static final int TYPE_ITEM=0;
+	public static final int TYPE_FOOTER=1;
+	/** 下拉刷新*/
+	public static final int ACTION_DOWNLOAD=0;
+	/** 第一次下载*/
+	public static final int ACTION_PULL_DOWN=1;
+	/** 上拉刷新*/
+	public static final int ACTION_PULL_UP=2;
 	String AVATAR_PATH 								= 		"//Users/clawpo/work/ucai/work/projects/SuperWeChat/teaching/201603/superwechatDB/";
 	String ISON8859_1 								= 		"iso8859-1";
 	String UTF_8 									= 		"utf-8";
 	String PAGE_ID 									= 		"page_id";						//分页的起始下标
 	String PAGE_SIZE 								= 		"page_size";					//分页的每页数量
 	int PAGE_ID_DEFAULT 							= 		0;								//分页的起始下标默认值
-	int PAGE_SIZE_DEFAULT 							= 		20;								//分页的每页数量默认值
+	int PAGE_SIZE_DEFAULT 							= 		10;								//分页的每页数量默认值
 	int ID_DEFAULT									=		0;								//ID默认值
 	int UN_READ_MSG_COUNT_DEFAULT					=		0;								//未读消息数量默认值
 	int GROUP_MAX_USERS_DEFAULT 					= 		-1;								//群组最大人数默认值

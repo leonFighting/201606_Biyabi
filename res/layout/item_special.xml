@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:paddingBottom="5.0dip"
+    android:paddingTop="5.0dip">
+
+    <com.android.volley.toolbox.NetworkImageView
+        android:id="@+id/niv_item_special"
+        android:layout_width="fill_parent"
+        android:layout_height="100.0dip"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="10.0dip"
+        android:layout_marginRight="10.0dip"
+        android:scaleType="centerCrop"/>
+
+</RelativeLayout>
