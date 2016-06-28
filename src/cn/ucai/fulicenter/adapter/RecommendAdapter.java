@@ -129,7 +129,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             mRecommendViewholder.tvTitleDiscoverlist.setText(recommendBean.getInfoTitle());
             mRecommendViewholder.tvPriceDiscoverlist.setText("¥ " + recommendBean.getMinPriceRMB());
             mRecommendViewholder.tvSourcediscoverlist.setText(recommendBean.getMallName());
-            if (recommendBean.getMaxPriceRMB() == recommendBean.getOrginalPriceRMB()) {
+            if (recommendBean.getMinPriceRMB() >= recommendBean.getOrginalPriceRMB()) {
                 mRecommendViewholder.tvOrginalPriceDiscoverlist.setVisibility(View.GONE);
             } else {
                 mRecommendViewholder.tvOrginalPriceDiscoverlist.setVisibility(View.VISIBLE);
@@ -142,7 +142,7 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
                 mRecommendViewholder.ivReviewcountDiscoverlist.setVisibility(View.VISIBLE);
                 mRecommendViewholder.tvReviewcountDiscoverlist.setText(""+recommendBean.getInfoReview());
             }
-            String updateTime = recommendBean.getInfoTime().substring(recommendBean.getInfoTime().lastIndexOf(" ") + 1);
+            String updateTime = recommendBean.getUpdateTime().substring(recommendBean.getUpdateTime().lastIndexOf(" ") + 1);
             mRecommendViewholder.tvTimeDiscoverlist.setText(updateTime);
             mRecommendViewholder.tvTagRecommendlist.setText("海外直购");
         }
@@ -167,13 +167,13 @@ public class RecommendAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
             mRecommendList.clear();
         }
         mRecommendList.addAll(list);
-        sort(sortBy);
+//        sort(I.SORT_BY_ADDTIME_DESC);
         notifyDataSetChanged();
     }
 
     public void addItems(ArrayList<RecommendBean> list) {
         mRecommendList.addAll(list);
-        sort(sortBy);
+//        sort(I.SORT_BY_ADDTIME_DESC);
         notifyDataSetChanged();
     }
 
